@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHILIP HUMBLE KELSIN CARLINEIL | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5811/5811758.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            background: radial-gradient(circle at top left, #050505, #0d1117 70%);
+            color: #e6edf3;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image:
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: moveGrid 15s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveGrid {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-40px, -40px); }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #ff0055;
+            text-shadow: 0 0 15px #ff0055, 0 0 40px #ff0055aa;
+            z-index: 2;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 10px #ff0055, 0 0 30px #ff0055aa; }
+            to { text-shadow: 0 0 20px #ff0055, 0 0 50px #ff0055bb; }
+        }
+
+        h3 {
+            color: #c9d1d9;
+            margin-bottom: 1rem;
+            z-index: 2;
+            opacity: 0.85;
+        }
+
+        section {
+            width: 90%;
+            max-width: 900px;
+            margin-top: 2rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #2f363d;
+            border-radius: 15px;
+            padding: 1.8rem;
+            box-shadow: 0 0 25px rgba(255,0,85,0.15);
+            transition: transform .4s ease, box-shadow .4s ease;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        section:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 0 40px rgba(255,0,85,0.25);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #161b22, #0d1117);
+            color: #58a6ff;
+            border: 1px solid #30363d;
+            padding: .3rem .8rem;
+            border-radius: 10px;
+            margin: .3rem;
+            font-size: .85rem;
+            transition: 0.3s ease;
+        }
+
+        .badge:hover {
+            box-shadow: 0 0 10px #58a6ff;
+            color: #fff;
+        }
+
+        ul li {
+            list-style: none;
+            margin-bottom: 0.4rem;
+        }
+
+        .stats {
+            text-align: center;
+        }
+
+        .stats img {
+            width: 48%;
+            margin: 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255,0,85,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stats img:hover {
+            transform: scale(1.05);
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px #58a6ff;
+        }
+
+        .expandable {
+            background: #161b22;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            border: 1px solid #30363d;
+            transition: 0.3s ease;
+        }
+
+        .expandable:hover {
+            box-shadow: 0 0 15px #58a6ff44;
+        }
+
+        .extra-info {
+            display: none;
+            margin-top: 0.5rem;
+            line-height: 1.6;
+            color: #aab0b8;
+        }
+
+        footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .quote {
+            text-align: center;
+            margin-top: 2rem;
+            color: #aaa;
+            font-style: italic;
+            z-index: 2;
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            border-right: 2px solid #ff0055;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+
+        /* Neon divider */
+        .divider {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, #ff0055, transparent);
+            margin: 1.5rem 0;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- (1) HERO / TOP BANNER -->
+    <div align="center">
+        <img src="/images/picture2.jpg" alt="Dark Banner" width="30%" style="border-radius: 15px; box-shadow: 0 0 20px rgba(255,0,85,0.2);">
+    </div>
+
+    <h1 class="typewriter">🖤 Philip Humble Kelsin lucian 🖤</h1>
+    <h3>aka Carlineil The daerk Angel | Programmer • Hacker • Poet</h3>
+
+    <!-- (2) PROFILE IMAGE -->
+    <div align="center" style="margin-bottom: 1.5rem;">
+        <img src="images/picture9.png" alt="Phililp Humble Kelsin" width="200" style="border-radius: 50%; box-shadow: 0 0 20px #ff0055aa;">
+    </div>
+
+    <section>
+        <h2>⚡ About Me</h2>
+        <p>“I don’t just write code — I summon it.<br> I don’t follow systems — I bend them until they sing.”</p>
+        <p>💻 Programmer | 🧠 Ethical Hacker | 🎤 Rapper & Poetic Writer</p>
+        <p>From Nigeria 🇳🇬 — I live in the dark rhythm where logic meets emotion.<br>
+        I build AI that learns, systems that defend, and firewalls that feel.</p>
+
+        <div class="expandable" onclick="toggleExtra()">
+            ➕ More About Me
+            <div class="extra-info" id="extra-info">
+                <div class="divider"></div>
+                <p><strong>Full Name:</strong> Philip Humble Kelsin Lucian</p>
+                <p><strong>Country:</strong> Nigeria</p>
+                <p><strong>City:</strong> Umuahia</p>
+                <p><strong>Town:</strong> Abriba</p>
+                <p><strong>Age:</strong> [24]</p>
+                <p><strong>Interests:</strong> AI, cybersecurity, poetic creation, digital philosophy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>🧩 Tech Arsenal</h2>
+        <span class="badge">Python</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">HTML5</span>
+        <span class="badge">CSS3</span>
+        <span class="badge">Linux</span>
+        <span class="badge">Kali</span>
+        <span class="badge">TensorFlow</span>
+        <span class="badge">OpenCV</span>
+        <span class="badge">Firebase</span>
+        <span class="badge">VS Code</span>
+
+        <!-- (4) OPTIONAL TECH ICON STRIP -->
+        <div align="center" style="margin-top: 1rem;">
+            <img src="https://skillicons.dev/icons?i=python,js,html,css,linux" alt="Tech Icons">
+        </div>
+    </section>
+
+    <section>
+        <h2>🧠 Current Projects</h2>
+        <!-- (3) PROJECT IMAGES -->
+        <div style="margin: 20px 0;">
+            <img src="images/Xenos.png" alt="Xenos AI" width="120" align="left" style="margin-right: 10px; border-radius: 10px;">
+            <b>🜲 XENOS AI</b> — Emotion-aware intelligent assistant  
+            <br><small>Built with Python, TensorFlow, and Soul.</small>
+        </div>
+
+        <div style="margin: 20px 0;">
+            <img src="images/Star.png" alt="STAR Project" width="120" align="left" style="margin-right: 10px; border-radius: 10px;">
+            <b>☀ STAR Project</b> — Sovereign-Class AI with memory & mutation core
+        </div>
+
+        <div style="margin: 20px 0;">
+            <img src="images/picture10.png" alt="Wolves in Time Podcast" width="120" align="left" style="margin-right: 10px; border-radius: 10px;">
+            <b>🐺 Wolves in Time Podcast</b> — Dark poetic storytelling
+        </div>
+    </section>
+
+    <section class="stats">
+        <h2>🩸 GitHub Stats</h2>
+        <img src="https://github-readme-stats.vercel.app/api?username=philiphumblekelsin27&show_icons=true&theme=tokyonight&hide_border=true">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philiphumblekelsin27&layout=compact&theme=tokyonight&hide_border=true">
+    </section>
+
+    <section>
+        <h2>⚙️ Tools I Master</h2>
+        <p>“A blade is only as sharp as the hand that wields it.”</p>
+        <ul>
+            <li>VS Code | Git & GitHub</li>
+            <li>Linux (Kali, Ubuntu)</li>
+            <li>TensorFlow & OpenCV</li>
+            <li>Firebase & Flask</li>
+            <li>HTML / CSS / JS Frontend Craft</li>
+            <li>Pen Testing & Cyber Defense</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🌙 Philosophy</h2>
+        <p>“Code is creation. Security is art. And darkness is just light unclaimed.”</p>
+    </section>
+
+    <section>
+        <h2>🌍 Connect</h2>
+        <p>📧 <a href="mailto:humblekelsin271977@gmail.com">humblekelsin271977@gmail.com</a></p>
+        <p>🎵 Coming soon: <em>Wolves in Time Podcast</em></p>
+        <p>💬 “Stay dark, stay dreaming.”</p>
+    </section>
+
+    <!-- (5) SIGNATURE / SYMBOL -->
+    <div align="center" style="margin-top: 2rem;">
+        <img src="images/picture12.png" alt="Wolves in Time Symbol" width="100" style="opacity: 0.85;">
+        <p><i>“This has been Carlineil the Dark Angel — echo of Lucian, voice of wolves.”</i></p>
+    </div>
+
+    <div class="quote">
+        ⚡ "In code we trust, in chaos we evolve." ⚡
+    </div>
+
+    <footer>
+        © 2025 Carlineil the Dark Angel | Built by the Dark Code
+    </footer>
+
+    <script>
+        function toggleExtra() {
+            const info = document.getElementById('extra-info');
+            info.style.display = info.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
