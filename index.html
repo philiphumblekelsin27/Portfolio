@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHILIP HUMBLE KELSIN CARLINEIL | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <title>Carlineil Alwings Alwins | Philip Humble Kelsin Lucian</title>
+
+    <!-- 🔥 App Icon & Manifest -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5811/5811758.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff0033">
+
+    <!-- 🧠 Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- PDF.js (lightweight CDN) -->
+    <script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -15,28 +24,23 @@
         }
 
         body {
-            background: radial-gradient(circle at top left, #ebf0dcde, #381cd8b2 70%);
+            background: radial-gradient(circle at top left, #050505, #0d1117 70%);
             color: #e6edf3;
             min-height: 100vh;
+            text-align: center;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 1.5rem;
             position: relative;
         }
 
+        /* Animated Grid Background */
         body::before {
             content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 200%;
+            position: fixed;
+            top: 0; left: 0;
+            width: 200%; height: 200%;
             background-image:
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             animation: moveGrid 15s linear infinite;
             z-index: 0;
@@ -47,327 +51,348 @@
             to { transform: translate(-40px, -40px); }
         }
 
-        h1 {
-            font-size: 2.4rem;
-            color: #ff0055;
-            text-shadow: 0 0 15px #ff0055, 0 0 40px #ff0055aa;
+        header {
+            margin-top: 2rem;
+            position: relative;
             z-index: 2;
-            animation: glowPulse 3s infinite alternate;
-            text-align: center;
         }
 
-        @keyframes glowPulse {
-            from { text-shadow: 0 0 10px #ff0055, 0 0 30px #ff0055aa; }
-            to { text-shadow: 0 0 20px #ff0055, 0 0 50px #ff0055bb; }
+        header img {
+            border-radius: 50%;
+            width: 170px;
+            box-shadow: 0 0 25px rgba(255,0,85,0.5);
+            border: 2px solid #ff0055;
+            transition: transform 0.4s ease;
+        }
+
+        header img:hover { transform: scale(1.07); }
+
+        h1 {
+            color: #ff0055;
+            font-size: 2.5rem;
+            margin-top: 1rem;
+            text-shadow: 0 0 20px #ff0055, 0 0 50px #ff0055aa;
+            animation: glowPulse 3s infinite alternate;
         }
 
         h3 {
-            color: #c9d1d9;
+            color: #aab0b8;
+            font-weight: 400;
             margin-bottom: 1rem;
-            text-align: center;
-            z-index: 2;
-            opacity: 0.85;
+        }
+
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 15px #ff0055; }
+            to { text-shadow: 0 0 35px #ff0055cc; }
         }
 
         section {
-            width: 95%;
-            max-width: 900px;
-            margin-top: 2rem;
-            background: rgba(255,255,255,0.05);
+            width: 90%;
+            max-width: 950px;
+            margin: 2rem auto;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            padding: 2rem;
             border: 1px solid #2f363d;
-            border-radius: 15px;
-            padding: 1.5rem;
             box-shadow: 0 0 25px rgba(255,0,85,0.15);
-            transition: transform .4s ease, box-shadow .4s ease;
-            position: relative;
+            text-align: left;
             z-index: 2;
-            animation: fadeIn 1.2s ease forwards;
-        }
-
-        section:hover {
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 0 40px rgba(255,0,85,0.25);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .badge {
-            display: inline-block;
-            background: linear-gradient(90deg, #161b22, #0d1117);
-            color: #58a6ff;
-            border: 1px solid #30363d;
-            padding: .3rem .8rem;
-            border-radius: 10px;
-            margin: .3rem;
-            font-size: .85rem;
+            position: relative;
             transition: 0.3s ease;
         }
 
-        .badge:hover {
-            box-shadow: 0 0 10px #58a6ff;
-            color: #fff;
+        section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(255,0,85,0.25);
         }
 
-        ul li {
-            list-style: none;
-            margin-bottom: 0.4rem;
-        }
+        h2 { color: #ff0055; margin-bottom: 1rem; }
 
-        .stats {
-            text-align: center;
-        }
-
-        .stats img {
-            width: 90%;
-            max-width: 420px;
-            margin: 0.5rem;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255,0,85,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .stats img:hover {
-            transform: scale(1.05);
-        }
-
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-shadow: 0 0 10px #58a6ff;
+        p {
+            color: #c9d1d9;
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
         .expandable {
             background: #161b22;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 1rem;
+            border-radius: 8px;
+            padding: 0.8rem;
             cursor: pointer;
             border: 1px solid #30363d;
-            transition: 0.3s ease;
-        }
-
-        .expandable:hover {
-            box-shadow: 0 0 15px #58a6ff44;
+            color: #58a6ff;
         }
 
         .extra-info {
             display: none;
             margin-top: 0.5rem;
-            line-height: 1.6;
-            color: #aab0b8;
+            color: #aaa;
+        }
+
+        .stats img {
+            width: 48%;
+            margin: 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255,0,85,0.15);
+        }
+
+        .pro-section {
+            background: linear-gradient(180deg, #0d1117 0%, #1a0000 100%);
+            padding: 3rem 1rem;
+            border-top: 1px solid #ff005533;
+            border-bottom: 1px solid #ff005533;
+        }
+
+        .cv-button {
+            display: inline-block;
+            background: #ff0055;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .cv-button:hover {
+            background: #58a6ff;
+            box-shadow: 0 0 15px #58a6ff;
+        }
+
+        /* 🎨 Project Gallery */
+        .project-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-gallery img {
+            width: 280px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            box-shadow: 0 0 15px rgba(255,0,85,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255,0,85,0.5);
+        }
+
+        .more-things {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #161b22;
+            border-radius: 10px;
+            border: 1px solid #2f363d;
+        }
+
+        .socials {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .socials a {
+            color: #58a6ff;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            color: #ff0055;
+            text-shadow: 0 0 10px #ff0055;
         }
 
         footer {
             margin-top: 3rem;
+            text-align: center;
+            opacity: 0.7;
             font-size: 0.9rem;
-            opacity: 0.8;
-            text-align: center;
-            z-index: 2;
         }
 
-        .quote {
-            text-align: center;
-            margin-top: 2rem;
-            color: #aaa;
-            font-style: italic;
-            z-index: 2;
+        @media(max-width: 768px) {
+            .stats img { width: 90%; }
+            .project-gallery img { width: 90%; }
         }
 
-        .typewriter {
-            border-right: 2px solid #13050c49;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typing 3s steps(10, end) forwards, blink 0.8s infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent }
-        }
-
-        .divider {
-            height: 1px;
+        /* Modal for inline resume viewer */
+        .modal {
+            display: none; /* hidden by default */
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
             width: 100%;
-            background: linear-gradient(90deg, transparent, #2bff00, transparent);
-            margin: 1.5rem 0;
-            opacity: 0.6;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
+        .modal.open { display: flex; }
+
+        .modal-content {
+            width: 100%;
+            max-width: 1000px;
+            height: 85vh;
+            background: linear-gradient(180deg, #071018 0%, #0d0b0c 100%);
+            border-radius: 10px;
+            padding: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,0,85,0.08);
+            display: flex;
+            flex-direction: column;
         }
 
-        /* 🔹 RESPONSIVE FIXES 🔹 */
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h3 {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 1.2rem;
-            }
-
-            .stats img {
-                width: 100%;
-                max-width: 350px;
-            }
-
-            img[alt="Philip Humble Kelsin"],
-            img[alt="Dark Banner"] {
-                width: 140px !important;
-            }
+        .modal-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.4rem 0.6rem;
+            gap: 0.5rem;
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
+        .modal-toolbar .title {
+            color: #ff7aa2;
+            font-weight: 600;
+        }
 
-            h3 {
-                font-size: 0.9rem;
-            }
+        .modal .close-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
 
-            .badge {
-                font-size: 0.75rem;
-                padding: 0.2rem 0.6rem;
-            }
+        .modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        @media(max-width: 600px) {
+            .modal-content { height: 92vh; }
         }
     </style>
 </head>
+
 <body>
-    <div align="center">
-        <img src="images/picture2.jpg" alt="Philip Humble Kelsin" style="border-radius: 50%; box-shadow: 0 0 20px rgba(72, 255, 0, 0.726); width: 60%; max-width: 250px; margin-top: 1rem;">
-    </div>
-
-    <h1 class="typewriter">🖤 Philip Humble Kelsin Lucian 🖤</h1>
-    <h3>aka Carlineil Alwings Alwins | Programmer • Hacker • Poet</h3>
-
-    <div align="center" style="margin-bottom: 1.5rem; flex-wrap: wrap;">
-        <img src="images/picture3.jpg" alt="Philip Humble Kelsin" width="180" style="border-radius: 50%; box-shadow: 0 0 20px rgba(72, 255, 0, 0.726); margin: 0.5rem;">
-        <img src="images/picture9.png" alt="Phililp Humble Kelsin" width="180" style="border-radius: 50%; box-shadow: 0 0 20px #ff0055aa; margin: 0.5rem;">
-        <img src="images/picture5.jpg" alt="Dark Banner" width="180" style="border-radius: 100%; box-shadow: 0 0 20px rgba(255, 0, 55, 0.747); margin: 0.5rem;">
-    </div>
+    <header>
+        <img src="images/picture.jpg" alt="Philip Humble Kelsin Lucian">
+        <h1>🖤 Philip Humble Kelsin 🖤</h1>
+        <h3>Programmer • Hacker • Poet | Nigeria 🇳🇬</h3>
+    </header>
 
     <section>
         <h2>⚡ About Me</h2>
-        <p>“I don’t just write code — I summon it.<br> I don’t follow systems — I bend them until they sing.”</p>
+        <p>“I don’t just write code — I summon it. I don’t follow systems — I bend them until they sing.”</p>
         <p>💻 Programmer | 🧠 Ethical Hacker | 🎤 Rapper & Poetic Writer</p>
-        <p>From Nigeria 🇳🇬 — I live in the dark rhythm where logic meets emotion.<br>
-        I build AI that learns, systems that defend, and firewalls that feel.</p>
 
-        <div class="expandable" onclick="toggleExtra()">
-            ➕ More About Me
+        <div class="expandable" onclick="toggleExtra()">➕ More About Me
             <div class="extra-info" id="extra-info">
-                <div class="divider"></div>
                 <p><strong>Full Name:</strong> Philip Humble Kelsin Lucian</p>
-                <p><strong>Country:</strong> Nigeria</p>
                 <p><strong>City:</strong> Umuahia</p>
-                <p><strong>Town:</strong> Abriba</p>
-                <p><strong>Age:</strong> 24</p>
-                <p><strong>Interests:</strong> AI, cybersecurity, poetic creation, digital philosophy.</p>
+                <p><strong>Country:</strong> Nigeria</p>
+                <p><strong>Age:</strong> 20s</p>
+                <p><strong>Interests:</strong> AI, Cybersecurity, Poetry, and Philosophical Systems</p>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>🧩 Tech Arsenal</h2>
-        <span class="badge">Python</span>
-        <span class="badge">JavaScript</span>
-        <span class="badge">HTML5</span>
-        <span class="badge">CSS3</span>
-        <span class="badge">Linux</span>
-        <span class="badge">Kali</span>
-        <span class="badge">TensorFlow</span>
-        <span class="badge">OpenCV</span>
-        <span class="badge">Firebase</span>
-        <span class="badge">VS Code</span>
-
-        <div align="center" style="margin-top: 1rem;">
-            <img src="https://skillicons.dev/icons?i=python,js,html,css,linux" alt="Tech Icons">
-        </div>
-    </section>
-
-    <section>
-        <h2>🧠 Current Projects</h2>
-        <div style="margin: 20px 0;">
-            <img src="images/Xenos.png" alt="Xenos AI" width="120" align="left" style="margin-right: 10px; border-radius: 10px;">
-            <b>🜲 XENOS AI</b> — Emotion-aware intelligent assistant  
-            <br><small>Built with Python, TensorFlow, and Soul.</small>
-        </div>
-
-        <div style="margin: 20px 0;">
-            <img src="images/Star.png" alt="STAR Project" width="120" align="left" style="margin-right: 10px; border-radius: 10px;">
-            <b>☀ STAR Project</b> — Sovereign-Class AI with memory & mutation core
-        </div>
-
-        <div style="margin: 20px 0;">
-            <img src="images/picture10.png" alt="Wolves in Time Podcast" width="120" align="left" style="margin-right: 10px; border-radius: 10px;">
-            <b>🐺 Wolves in Time Podcast</b> — Dark poetic storytelling
         </div>
     </section>
 
     <section class="stats">
         <h2>🩸 GitHub Stats</h2>
-        <img src="https://github-readme-stats.vercel.app/api?username=philiphumblekelsin27&show_icons=true&theme=tokyonight&hide_border=true">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philiphumblekelsin27&layout=compact&theme=tokyonight&hide_border=true">
+        <div align="center">
+            <img src="https://github-readme-stats.vercel.app/api?username=philiphumblekelsin27&show_icons=true&theme=tokyonight&hide_border=true">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philiphumblekelsin27&layout=compact&theme=tokyonight&hide_border=true">
+        </div>
     </section>
 
-    <section>
-        <h2>⚙️ Tools I Master</h2>
-        <p>“A blade is only as sharp as the hand that wields it.”</p>
-        <ul>
-            <li>VS Code | Git & GitHub</li>
-            <li>Linux (Kali, Ubuntu)</li>
-            <li>TensorFlow & OpenCV</li>
-            <li>Firebase & Flask</li>
-            <li>HTML / CSS / JS Frontend Craft</li>
-            <li>Pen Testing & Cyber Defense</li>
+    <div class="pro-section">
+        <h2>🌑 Professional Portfolio & Resume</h2>
+        <p>I transform ideas into secure, intelligent, and emotional digital systems.  
+        My passion lies in building AI with a soul and defending cyberspace from the unseen.</p>
+        <p>My resume or CV provides a comprehensive overview of my skills, experiences, and projects.[projects are not available at the moment]</p>
+
+        <!-- 🧾 Resume Placeholder — open viewer or download directly -->
+        <div class="resume-actions" style="margin-top:1rem; display:flex; gap:1rem;">
+            <a href="files/Humble_Philip_Resume.pdf" target="_blank" rel="noopener noreferrer" class="cv-button">
+              📄 View Resume
+            </a>
+            <a href="files/Humble_Philip_Resume.pdf" download="Humble_Philip_Resume.pdf" class="cv-button">
+              ⬇️ Download
+            </a>
+          </div>
+          
+        
+
+        <h3>💼 Featured Projects</h3>
+        <ul style="text-align:left; margin-left:25%; list-style: none;">
+            <li>🜲 <b>XENOS AI</b> — Emotion-aware Python Assistant</li>
+            <li>☀ <b>STAR Project</b> — Sovereign-Class AI with memory & mutation</li>
+            <li>🐺 <b>Wolves in Time</b> — Dark poetic storytelling podcast</li>
         </ul>
-    </section>
 
-    <section>
-        <h2>🌙 Philosophy</h2>
-        <p>“Code is creation. Security is art. And darkness is just light unclaimed.”</p>
-    </section>
+        <!-- 🖼️ Project Image Gallery -->
+        <div class="project-gallery">
+            <img src="images/Xenos.png" alt="Xenos project">
+            <img src="images/Star.png" alt="Star project">
+            <img src="images/picture10.png" alt="Wolves in Time project">
+        </div>
 
-    <section>
-        <h2>🌍 Connect</h2>
-        <p>📧 <a href="mailto:humblekelsin271977@gmail.com">humblekelsin271977@gmail.com</a></p>
-        <p>🎵 Coming soon: <em>Wolves in Time Podcast</em></p>
-        <p>💬 “Stay dark, stay dreaming.”</p>
-    </section>
-
-    <div align="center" style="margin-top: 2rem;">
-        <img src="images/picture12.png" alt="Wolves in Time Symbol" width="100" style="opacity: 0.85;">
-        <p><i>“This has been Carlineil Alwings Alwins — echo of Lucian, voice of wolves.”</i></p>
+        <!-- 🧩 More Things Section -->
+        <div class="more-things">
+            <h3>🧩 More Things I’m Building & Exploring</h3>
+            <p>Here you can later add:</p>
+            <ul>
+                <li>⚔️ New AI frameworks & automation tools</li>
+                <li>🧬 Machine learning experimentations</li>
+                <li>🎶 Music, rap, and lyrical storytelling archives</li>
+                <li>🌌 Upcoming projects, videos, or podcasts</li>
+                <li>🧩 upcoming text base API</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="quote">
-        ⚡ "In code we trust, in chaos we evolve." ⚡
+    <div class="socials">
+        <a href="https://github.com/philiphumblekelsin27">🐙 GitHub</a>
+        <a href="mailto:humblekelsin271977@gmail.com">📧 Email</a>
+        <a href="#">🎵 Wolves in Time</a>
+    </div>
+
+    <!-- Resume Modal (hidden until opened) -->
+    <div id="resume-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="resume-title">
+        <div class="modal-content">
+            <div class="modal-toolbar">
+                <div class="title" id="resume-title">📄 Philip Humble Resume</div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <button id="page-prev" class="cv-button" style="background:#222;padding:0.4rem 0.8rem;">◀</button>
+                    <button id="page-next" class="cv-button" style="background:#222;padding:0.4rem 0.8rem;">▶</button>
+                    <div style="color:#c9d1d9; font-size:0.95rem;">Page <span id="page-num">1</span> / <span id="page-count">—</span></div>
+                    <a class="cv-button" href="files/Humble_Philip_Resume.pdf" target="_blank" rel="noopener" style="margin-left:8px;">Open in new tab</a>
+                    <button class="close-btn" id="resume-close" aria-label="Close resume viewer">✕</button>
+                </div>
+            </div>
+            <div id="pdf-viewer" style="flex:1; position:relative; display:flex; align-items:center; justify-content:center; overflow:auto; padding:8px;">
+                <canvas id="pdf-canvas" style="max-width:100%; box-shadow:0 6px 30px rgba(0,0,0,0.6); border-radius:6px; background:#fff;"></canvas>
+                <div id="pdf-loading" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:none; color:#fff; background:rgba(0,0,0,0.5); padding:10px 14px; border-radius:8px;">Loading…</div>
+                <div id="pdf-error" style="display:none; color:#ff9999; padding:12px;">Unable to load resume.</div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        © 2025 Carlineil Alwings Alwins | Philip Humble Kelsin Lucian | Built by the Dark Code
+        © 2025 Carlineil Alwings Alwins| Philip Humble Kelsin | “In Code We Trust, In Chaos We Evolve.”
     </footer>
 
     <script>
@@ -375,6 +400,138 @@
             const info = document.getElementById('extra-info');
             info.style.display = info.style.display === 'block' ? 'none' : 'block';
         }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(() => console.log('Carlineil SW: Active 🔥'))
+            .catch(err => console.error('SW Registration failed:', err));
+        }
+
+        /* Resume modal logic using PDF.js */
+        (function(){
+            const modal = document.getElementById('resume-modal');
+            const closeBtn = document.getElementById('resume-close');
+            const resumePath = 'files/Humble Philip Resume.pdf';
+            const openResumeBtn = document.getElementById('open-resume'); // explicit button
+
+            const canvas = document.getElementById('pdf-canvas');
+            const ctx = canvas.getContext('2d');
+            const loadingEl = document.getElementById('pdf-loading');
+            const errorEl = document.getElementById('pdf-error');
+            const pageNumEl = document.getElementById('page-num');
+            const pageCountEl = document.getElementById('page-count');
+            const prevBtn = document.getElementById('page-prev');
+            const nextBtn = document.getElementById('page-next');
+
+            let pdfDoc = null;
+            let pageNum = 1;
+            let scale = 1.4;
+
+            // Configure worker (use unpkg CDN worker) if PDF.js loaded
+            if (window.pdfjsLib) {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist/build/pdf.worker.min.js';
+            }
+
+            function showLoading(on = true) {
+                loadingEl.style.display = on ? 'block' : 'none';
+            }
+
+            function showError(msg) {
+                errorEl.style.display = 'block';
+                errorEl.textContent = msg || 'Unable to load resume.';
+            }
+
+            function renderPage(num) {
+                showLoading(true);
+                errorEl.style.display = 'none';
+                pdfDoc.getPage(num).then(function(page) {
+                    const viewport = page.getViewport({ scale: scale });
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const renderCtx = { canvasContext: ctx, viewport: viewport };
+                    const renderTask = page.render(renderCtx);
+                    renderTask.promise.then(function () {
+                        showLoading(false);
+                        pageNumEl.textContent = num;
+                        pageCountEl.textContent = pdfDoc.numPages;
+                    }).catch(err => {
+                        showLoading(false);
+                        showError('Render error: ' + err.message);
+                    });
+                }).catch(err => {
+                    showLoading(false);
+                    showError('Page error: ' + err.message);
+                });
+            }
+
+            function loadAndRender() {
+                showLoading(true);
+                errorEl.style.display = 'none';
+                if (!window.pdfjsLib) {
+                    showLoading(false);
+                    showError('PDF.js library failed to load. Please check your connection or use the "Open in new tab" link.');
+                    return;
+                }
+                const loadingTask = pdfjsLib.getDocument(resumePath);
+                loadingTask.promise.then(function(pdf) {
+                    pdfDoc = pdf;
+                    pageNum = 1;
+                    renderPage(pageNum);
+                }).catch(function(err){
+                    showLoading(false);
+                    showError('Failed to load PDF: ' + err.message);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (!pdfDoc) return;
+                if (pageNum <= 1) return;
+                pageNum--;
+                renderPage(pageNum);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (!pdfDoc) return;
+                if (pageNum >= pdfDoc.numPages) return;
+                pageNum++;
+                renderPage(pageNum);
+            });
+
+            // Primary: attach to the explicit open button if present
+            if (openResumeBtn) {
+                openResumeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('open');
+                    loadAndRender();
+                    closeBtn.focus();
+                });
+            }
+
+            // Fallback: attach to any cv-button anchors (safe-guard)
+            document.querySelectorAll('a.cv-button').forEach(btn => {
+                if (btn === openResumeBtn) return;
+                btn.addEventListener('click', (e) => {
+                    // if clicked inside modal (open-in-new-tab link), allow default
+                    if (btn.closest('#resume-modal')) return;
+                    e.preventDefault();
+                    modal.classList.add('open');
+                    loadAndRender();
+                    closeBtn.focus();
+                });
+            });
+
+            function closeModal() {
+                modal.classList.remove('open');
+                // clear canvas and references
+                if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pdfDoc = null;
+                pageCountEl.textContent = '—';
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (ev) => { if (ev.target === modal) closeModal(); });
+            document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+        })();
     </script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{
+    "name": "Carlineil Portfolio",    
+    "short_name": "Carlineil",         
+    "start_url": "./portfolio.html",   
+    "display": "standalone",          
+    "background_color": "#0d1117",    
+    "theme_color": "#ff0033",          
+    "icons": [
+      {
+        "src": "images/Xenos and Star",     
+        "sizes": "512x512",            
+        "type": "image/png"
+      }
+    ]
+  }
+  
