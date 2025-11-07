@@ -1,6 +1,6 @@
 <!-- 🌑 DARK TERMINAL-THEMED GITHUB PROFILE README -->
-<h1 align="center">🖤 Carlineil the Dark Angel 🖤</h1>
-<h3 align="center">aka Philip Humble Kelsin Lucian | Programmer • Hacker • Poet</h3>
+<h1 align="center">🖤 Philip Humble Kelsin Lucian🖤</h1>
+<h3 align="center">aka Carlineil Alwings Alwins | Programmer • Hacker • Poet</h3>
 
 ---
 

@@ -1,66 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carlineil Alwings Alwins | Philip Humble Kelsin Lucian</title>
-
-  <!-- 🔥 App Icon & Manifest -->
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5811/5811758.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ff0033">
-
-  <!-- 🧠 Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <!-- ✅ Latest PDF.js (stable) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHILIP HUMBLE KELSIN CARLINEIL | Portfolio</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5811/5811758.png">
+    <!-- 🧠 Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- ✅ Latest PDF.js (stable) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
   <style>
-    /* (unchanged — all your existing styles preserved) */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono',monospace;}
-    body{background:radial-gradient(circle at top left,#050505,#0d1117 70%);color:#e6edf3;min-height:100vh;text-align:center;overflow-x:hidden;position:relative;}
-    body::before{content:"";position:fixed;top:0;left:0;width:200%;height:200%;background-image:linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px);background-size:40px 40px;animation:moveGrid 15s linear infinite;z-index:0;}
-    @keyframes moveGrid{from{transform:translate(0,0);}to{transform:translate(-40px,-40px);}}
-    header{margin-top:2rem;position:relative;z-index:2;}
-    header img{border-radius:50%;width:170px;box-shadow:0 0 25px rgba(255,0,85,0.5);border:2px solid #ff0055;transition:transform .4s ease;}
-    header img:hover{transform:scale(1.07);}
-    h1{color:#ff0055;font-size:2.5rem;margin-top:1rem;text-shadow:0 0 20px #ff0055,0 0 50px #ff0055aa;animation:glowPulse 3s infinite alternate;}
-    h3{color:#aab0b8;font-weight:400;margin-bottom:1rem;}
-    @keyframes glowPulse{from{text-shadow:0 0 15px #ff0055;}to{text-shadow:0 0 35px #ff0055cc;}}
-    section{width:90%;max-width:950px;margin:2rem auto;background:rgba(255,255,255,0.04);border-radius:12px;padding:2rem;border:1px solid #2f363d;box-shadow:0 0 25px rgba(255,0,85,0.15);text-align:left;z-index:2;position:relative;transition:.3s ease;}
-    section:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(255,0,85,0.25);}
-    h2{color:#ff0055;margin-bottom:1rem;}
-    p{color:#c9d1d9;line-height:1.7;margin-bottom:1rem;}
-    .expandable{background:#161b22;border-radius:8px;padding:.8rem;cursor:pointer;border:1px solid #30363d;color:#58a6ff;}
-    .extra-info{display:none;margin-top:.5rem;color:#aaa;}
-    .stats img{width:48%;margin:.5rem;border-radius:10px;box-shadow:0 0 20px rgba(255,0,85,0.15);}
-    .pro-section{background:linear-gradient(180deg,#0d1117 0%,#1a0000 100%);padding:3rem 1rem;border-top:1px solid #ff005533;border-bottom:1px solid #ff005533;}
-    .cv-button{display:inline-block;background:#ff0055;color:#fff;padding:.8rem 1.5rem;border-radius:10px;text-decoration:none;transition:.3s;margin-bottom:2rem;}
-    .cv-button:hover{background:#58a6ff;box-shadow:0 0 15px #58a6ff;}
-    .project-gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;margin-top:1.5rem;}
-    .project-gallery img{width:280px;border-radius:10px;border:1px solid #30363d;box-shadow:0 0 15px rgba(255,0,85,0.1);transition:all .4s ease;}
-    .project-gallery img:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,0,85,0.5);}
-    .more-things{margin-top:2rem;padding:1.5rem;background:#161b22;border-radius:10px;border:1px solid #2f363d;}
-    .socials{text-align:center;margin-top:1.5rem;}
-    .socials a{color:#58a6ff;margin:0 10px;text-decoration:none;transition:.3s;}
-    .socials a:hover{color:#ff0055;text-shadow:0 0 10px #ff0055;}
-    footer{margin-top:3rem;text-align:center;opacity:.7;font-size:.9rem;}
-    @media(max-width:768px){.stats img{width:90%;}.project-gallery img{width:90%;}}
-    .modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1.5rem;}
-    .modal.open{display:flex;}
-    .modal-content{width:100%;max-width:1000px;height:85vh;background:linear-gradient(180deg,#071018 0%,#0d0b0c 100%);border-radius:10px;padding:.5rem;box-shadow:0 10px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,0,85,0.08);display:flex;flex-direction:column;}
-    .modal-toolbar{display:flex;align-items:center;justify-content:space-between;padding:.4rem .6rem;gap:.5rem;}
-    .modal-toolbar .title{color:#ff7aa2;font-weight:600;}
-    .modal .close-btn{background:transparent;border:none;color:#fff;font-size:1.6rem;cursor:pointer;padding:.2rem .6rem;border-radius:6px;}
-    .modal iframe{width:100%;height:100%;border:none;border-radius:6px;background:#fff;}
-    @media(max-width:600px){.modal-content{height:92vh;}}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', 'JetBrains Mono', monospace;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #050505, #0d1117 70%);
+      color: #e6edf3;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* Profile Container */
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .link-button {
+      background: rgba(255,255,255,0.05);
+      color: #58a6ff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #30363d;
+      transition: all 0.3s ease;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .link-button:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #58a6ff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(88,166,255,0.2);
+    }
+
+    /* Grid Animation Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background-image: 
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: moveGrid 15s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveGrid {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-40px, -40px); }
+    }
+
+    /* Header Styles */
+    header {
+      margin-top: 2rem;
+      position: relative;
+      z-index: 2;
+      padding: 1rem;
+    }
+
+    header img {
+      border-radius: 50%;
+      width: 170px;
+      box-shadow: 0 0 25px rgba(255,0,85,0.5);
+      border: 2px solid #ff0055;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 35px rgba(255,0,85,0.7);
+    }
+
+    h1 {
+      font-family: 'JetBrains Mono', monospace;
+      color: #ff0055;
+      font-size: 2.5rem;
+      margin-top: 1rem;
+      text-shadow: 0 0 20px #ff0055, 0 0 50px #ff0055aa;
+      animation: glowPulse 3s infinite alternate;
+    }
+
+    h3 {
+      color: #aab0b8;
+      font-weight: 400;
+      margin: 0.5rem 0 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    @keyframes glowPulse {
+      from { text-shadow: 0 0 15px #ff0055; }
+      to { text-shadow: 0 0 35px #ff0055cc; }
+    }
+
+    /* Section Styles */
+    section {
+      width: 90%;
+      max-width: 950px;
+      margin: 2rem auto;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #2f363d;
+      box-shadow: 0 0 25px rgba(255,0,85,0.15);
+      text-align: left;
+      z-index: 2;
+      position: relative;
+      transition: .3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(255,0,85,0.25);
+    }
+
+    h2 {
+      color: #ff0055;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    p {
+      color: #c9d1d9;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    /* Expandable Section */
+    .expandable {
+      background: #161b22;
+      border-radius: 8px;
+      padding: .8rem;
+      cursor: pointer;
+      border: 1px solid #30363d;
+      color: #58a6ff;
+      transition: .3s ease;
+    }
+
+    .expandable:hover {
+      background: #1c2333;
+      border-color: #58a6ff;
+    }
+
+    .extra-info {
+      display: none;
+      margin-top: .5rem;
+      color: #aaa;
+      padding: 0.5rem;
+    }
+
+    /* Stats Section */
+    .stats img {
+      width: 48%;
+      margin: .5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,0,85,0.15);
+      transition: transform .3s ease;
+    }
+
+    .stats img:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Professional Section */
+    .pro-section {
+      background: linear-gradient(180deg, #0d1117 0%, #1a0000 100%);
+      padding: 3rem 1rem;
+      border-top: 1px solid #ff005533;
+      border-bottom: 1px solid #ff005533;
+    }
+
+    .cv-button {
+      display: inline-block;
+      background: #ff0055;
+      color: #fff;
+      padding: .8rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: .3s;
+      margin: 0 0.5rem 2rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cv-button:hover {
+      background: #58a6ff;
+      box-shadow: 0 0 15px #58a6ff;
+      transform: translateY(-2px);
+    }
+
+    /* Project Gallery */
+    .project-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-gallery img {
+      width: 280px;
+      border-radius: 10px;
+      border: 1px solid #30363d;
+      box-shadow: 0 0 15px rgba(255,0,85,0.1);
+      transition: all .4s ease;
+    }
+
+    .project-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,0,85,0.5);
+    }
+
+    /* Additional Sections */
+    .more-things {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #161b22;
+      border-radius: 10px;
+      border: 1px solid #2f363d;
+    }
+
+    .more-things ul {
+      list-style: none;
+      padding: 0.5rem;
+    }
+
+    .more-things li {
+      margin: 0.8rem 0;
+      color: #c9d1d9;
+    }
+
+    /* Social Links */
+    .socials {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .socials a {
+      color: #58a6ff;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: .3s;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .socials a:hover {
+      color: #ff0055;
+      text-shadow: 0 0 10px #ff0055;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 2rem 0;
+      color: #8b949e;
+      font-size: .9rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 1000px;
+      height: 85vh;
+      background: linear-gradient(180deg, #071018 0%, #0d0b0c 100%);
+      border-radius: 10px;
+      padding: .5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,0,85,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .4rem .6rem;
+      gap: .5rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .modal-toolbar .title {
+      color: #ff7aa2;
+      font-weight: 600;
+    }
+
+    .modal .close-btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: .2rem .6rem;
+      border-radius: 6px;
+      transition: background-color .2s;
+    }
+
+    .modal .close-btn:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .stats img {
+        width: 90%;
+      }
+      .project-gallery img {
+        width: 90%;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        height: 92vh;
+      }
+      .cv-button {
+        display: block;
+        margin: 1rem auto;
+        max-width: 280px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="images/picture.jpg" alt="Philip Humble Kelsin Lucian">
-    <h1>🖤 Philip Humble Kelsin 🖤</h1>
-    <h3>Programmer • Hacker • Poet | Nigeria 🇳🇬</h3>
+    <div class="profile-container">
+      <img src="images/picture.jpg" alt="Philip Humble Kelsin Lucian">
+      <div class="profile-info">
+        <h1>🖤 Philip Humble Kelsin 🖤</h1>
+        <h3>Programmer • Hacker • Poet | Nigeria 🇳🇬</h3>
+        <div class="quick-links">
+          <a href="https://github.com/philiphumblekelsin27" class="link-button">🐙 GitHub</a>
+          <a href="#portfolio" class="link-button">💼 Portfolio</a>
+          <a href="mailto:humblekelsin271977@gmail.com" class="link-button">📧 Contact</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <section>
@@ -93,8 +443,8 @@
     <p>My resume or CV provides a comprehensive overview of my skills, experiences, and projects.[projects are not available at the moment]</p>
 
     <div class="resume-placeholder" style="margin-top:1rem;">
-      <a id="open-resume" href="files/Humble Philip Resume.pdf" class="cv-button">📄 View Resume (Viewer)</a>
-      <a href="files/Humble Philip Resume.pdf" class="cv-download" target="_blank" rel="noopener" download style="display:inline-block; background:#222; color:#fff; padding:0.8rem 1.2rem; border-radius:10px; text-decoration:none; margin-left:0.8rem;">⬇️ Download Resume</a>
+      <a id="open-resume" href="files/Humble_Philip_Resume.pdf" class="cv-button">📄 View Resume (Viewer)</a>
+      <a href="files/Humble_Philip_Resume.pdf" class="cv-download" target="_blank" rel="noopener" download style="display:inline-block; background:#222; color:#fff; padding:0.8rem 1.2rem; border-radius:10px; text-decoration:none; margin-left:0.8rem;">⬇️ Download Resume</a>
     </div>
 
     <h3>💼 Featured Projects</h3>
@@ -136,7 +486,7 @@
           <button id="page-prev" class="cv-button" style="background:#222;padding:0.4rem 0.8rem;">◀</button>
           <button id="page-next" class="cv-button" style="background:#222;padding:0.4rem 0.8rem;">▶</button>
           <div style="color:#c9d1d9;font-size:0.95rem;">Page <span id="page-num">1</span> / <span id="page-count">—</span></div>
-          <a class="cv-button" href="files/Humble Philip Resume.pdf" target="_blank" rel="noopener" style="margin-left:8px;">Open in new tab</a>
+          <a class="cv-button" href="files/Humble_Philip_Resume.pdf" target="_blank" rel="noopener" style="margin-left:8px;">Open in new tab</a>
           <button class="close-btn" id="resume-close" aria-label="Close resume viewer">✕</button>
         </div>
       </div>
@@ -165,7 +515,7 @@
       const pageCountEl=document.getElementById('page-count');
       const prevBtn=document.getElementById('page-prev');
       const nextBtn=document.getElementById('page-next');
-      const resumePath='files/Humble Philip Resume.pdf';
+  const resumePath='files/Humble_Philip_Resume.pdf';
 
       let pdfDoc=null,pageNum=1,scale=1.2;
 
@@ -188,6 +538,10 @@
       async function loadPDF(){
         try{
           showLoading(true);
+          // ensure worker is set for pdf.js loaded from CDN
+          if (window.pdfjsLib) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          }
           const loadingTask=window.pdfjsLib.getDocument(resumePath);
           pdfDoc=await loadingTask.promise;
           renderPage(pageNum=1);

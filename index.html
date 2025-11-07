@@ -11,16 +11,16 @@
     <meta name="theme-color" content="#ff0033">
 
     <!-- 🧠 Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <!-- PDF.js (lightweight CDN) -->
-    <script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- ✅ Latest PDF.js (stable) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Roboto', 'JetBrains Mono', monospace;
         }
 
         body {
@@ -144,19 +144,55 @@
         }
 
         .cv-button {
-            display: inline-block;
-            background: #ff0055;
-            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             padding: 0.8rem 1.5rem;
             border-radius: 10px;
             text-decoration: none;
-            transition: 0.3s;
-            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 0.5rem;
+        }
+
+        .primary-button {
+            background: #ff0055;
+            color: #fff;
+        }
+
+        .secondary-button {
+            background: #222;
+            color: #fff;
         }
 
         .cv-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary-button:hover {
             background: #58a6ff;
-            box-shadow: 0 0 15px #58a6ff;
+            box-shadow: 0 5px 15px rgba(88,166,255,0.3);
+        }
+
+        .secondary-button:hover {
+            background: #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .button-icon {
+            font-size: 1.1rem;
+        }
+
+        .button-text {
+            font-size: 0.95rem;
+        }
+
+        .resume-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0 2.5rem;
         }
 
         /* 🎨 Project Gallery */
@@ -181,12 +217,46 @@
             box-shadow: 0 0 25px rgba(255,0,85,0.5);
         }
 
-        .more-things {
-            margin-top: 2rem;
-            padding: 1.5rem;
+        .future-work {
+            margin-top: 3rem;
+            padding: 2rem;
             background: #161b22;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid #2f363d;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .work-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+        }
+
+        .work-item:hover {
+            transform: translateY(-2px);
+            border-color: #ff0055;
+            box-shadow: 0 5px 15px rgba(255,0,85,0.1);
+        }
+
+        .work-icon {
+            font-size: 1.4rem;
+        }
+
+        .work-text {
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         .socials {
@@ -204,6 +274,47 @@
         .socials a:hover {
             color: #ff0055;
             text-shadow: 0 0 10px #ff0055;
+        }
+        .socials h3 {
+            color: #ff0055;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: #ff0055;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,0,85,0.1);
+        }
+
+        .social-icon {
+            font-size: 1.4rem;
+        }
+
+        .social-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
         }
 
         footer {
@@ -258,6 +369,7 @@
             gap: 0.5rem;
         }
 
+        
         .modal-toolbar .title {
             color: #ff7aa2;
             font-weight: 600;
@@ -289,17 +401,41 @@
 
 <body>
     <header>
-        <img src="images/picture.jpg" alt="Philip Humble Kelsin Lucian">
-        <h1>🖤 Philip Humble Kelsin 🖤</h1>
-        <h3>Programmer • Hacker • Poet | Nigeria 🇳🇬</h3>
+        <div class="profile-container">
+            <img src="images/picture.jpg" alt="Philip Humble Kelsin Lucian">
+            <div class="profile-info">
+                <h1>🖤 Philip Humble Kelsin 🖤</h1>
+                <h3>Programmer • Hacker • Poet | Nigeria 🇳🇬</h3>
+                <div class="quick-links">
+                    <a href="https://github.com/philiphumblekelsin27" class="link-button">🐙 GitHub</a>
+                    <a href="#portfolio" class="link-button">💼 Portfolio</a>
+                    <a href="mailto:humblekelsin271977@gmail.com" class="link-button">📧 Contact</a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section>
+    <section class="about">
         <h2>⚡ About Me</h2>
-        <p>“I don’t just write code — I summon it. I don’t follow systems — I bend them until they sing.”</p>
-        <p>💻 Programmer | 🧠 Ethical Hacker | 🎤 Rapper & Poetic Writer</p>
+        <p class="quote">"I don't just write code — I summon it. I don't follow systems — I bend them until they sing."</p>
+        
+        <div class="skills-container">
+            <div class="skill">
+                <span class="skill-icon">💻</span>
+                <span class="skill-text">Programmer</span>
+            </div>
+            <div class="skill">
+                <span class="skill-icon">🧠</span>
+                <span class="skill-text">Ethical Hacker</span>
+            </div>
+            <div class="skill">
+                <span class="skill-icon">🎤</span>
+                <span class="skill-text">Rapper & Poet</span>
+            </div>
+        </div>
 
-        <div class="expandable" onclick="toggleExtra()">➕ More About Me
+        <div class="expandable" onclick="toggleExtra()">
+            <span class="expand-icon">➕</span> More About Me
             <div class="extra-info" id="extra-info">
                 <p><strong>Full Name:</strong> Philip Humble Kelsin Lucian</p>
                 <p><strong>City:</strong> Umuahia</p>
@@ -324,19 +460,19 @@
         My passion lies in building AI with a soul and defending cyberspace from the unseen.</p>
         <p>My resume or CV provides a comprehensive overview of my skills, experiences, and projects.[projects are not available at the moment]</p>
 
-        <!-- 🧾 Resume Placeholder — open viewer or download directly -->
-        <div class="resume-actions" style="margin-top:1rem; display:flex; gap:1rem;">
-            <a href="files/Humble_Philip_Resume.pdf" target="_blank" rel="noopener noreferrer" class="cv-button">
-              📄 View Resume
+        <div class="resume-actions">
+            <a id="open-resume" href="files/Humble_Philip_Resume.pdf" class="cv-button primary-button">
+                <span class="button-icon">📄</span>
+                <span class="button-text">View Resume</span>
             </a>
-            <a href="files/Humble_Philip_Resume.pdf" download="Humble_Philip_Resume.pdf" class="cv-button">
-              ⬇️ Download
+            <a href="files/Humble_Philip_Resume.pdf" class="cv-button secondary-button" target="_blank" rel="noopener" download>
+                <span class="button-icon">⬇️</span>
+                <span class="button-text">Download Resume</span>
             </a>
-          </div>
-          
-        
+        </div>
 
-        <h3>💼 Featured Projects</h3>
+        <div class="featured-projects">
+            <h3>💼 Featured Projects</h3>
         <ul style="text-align:left; margin-left:25%; list-style: none;">
             <li>🜲 <b>XENOS AI</b> — Emotion-aware Python Assistant</li>
             <li>☀ <b>STAR Project</b> — Sovereign-Class AI with memory & mutation</li>
@@ -351,23 +487,61 @@
         </div>
 
         <!-- 🧩 More Things Section -->
-        <div class="more-things">
-            <h3>🧩 More Things I’m Building & Exploring</h3>
-            <p>Here you can later add:</p>
-            <ul>
-                <li>⚔️ New AI frameworks & automation tools</li>
-                <li>🧬 Machine learning experimentations</li>
-                <li>🎶 Music, rap, and lyrical storytelling archives</li>
-                <li>🌌 Upcoming projects, videos, or podcasts</li>
-                <li>🧩 upcoming text base API</li>
-            </ul>
+        <div class="future-work">
+            <h3>🧩 Future Endeavors</h3>
+            <div class="work-grid">
+                <div class="work-item">
+                    <span class="work-icon">⚔️</span>
+                    <span class="work-text">New AI frameworks & automation tools</span>
+                </div>
+                <div class="work-item">
+                    <span class="work-icon">🧬</span>
+                    <span class="work-text">Machine learning experimentations</span>
+                </div>
+                <div class="work-item">
+                    <span class="work-icon">🎶</span>
+                    <span class="work-text">Music & storytelling archives</span>
+                </div>
+                <div class="work-item">
+                    <span class="work-icon">🌌</span>
+                    <span class="work-text">Upcoming digital experiences</span>
+                </div>
+                <div class="work-item">
+                    <span class="work-icon">🧩</span>
+                    <span class="work-text">Advanced API development</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="socials">
-        <a href="https://github.com/philiphumblekelsin27">🐙 GitHub</a>
-        <a href="mailto:humblekelsin271977@gmail.com">📧 Email</a>
-        <a href="#">🎵 Wolves in Time</a>
+            <h3>📱 Contact & Social Links</h3>
+            <div class="contact-grid">
+                <a href="https://github.com/philiphumblekelsin27" class="social-link">
+                    <span class="social-icon">🐙</span>
+                    <span class="social-text">GitHub</span>
+                </a>
+                <a href="mailto:humblekelsin271977@gmail.com" class="social-link">
+                    <span class="social-icon">📧</span>
+                    <span class="social-text">humblekelsin271977@gmail.com</span>
+                </a>
+                <a href="tel:+2349135356959" class="social-link">
+                    <span class="social-icon">📱</span>
+                    <span class="social-text">+234 913 535 6959</span>
+                </a>
+                <a href="tel:9169828274" class="social-link">
+                    <span class="social-icon">📱</span>
+                    <span class="social-text">916 982 8274</span>
+                </a>
+                <a href="tel:7018096839" class="social-link">
+                    <span class="social-icon">📱</span>
+                    <span class="social-text">701 809 6839</span>
+                </a>
+                <a href="#" class="social-link">
+                    <span class="social-icon">🎵</span>
+                    <span class="social-text">Wolves in Time</span>
+                </a>
+            </div>
     </div>
 
     <!-- Resume Modal (hidden until opened) -->
@@ -402,7 +576,7 @@
         }
 
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
+            navigator.serviceWorker.register('sw.js')
             .then(() => console.log('Carlineil SW: Active 🔥'))
             .catch(err => console.error('SW Registration failed:', err));
         }
@@ -411,7 +585,7 @@
         (function(){
             const modal = document.getElementById('resume-modal');
             const closeBtn = document.getElementById('resume-close');
-            const resumePath = 'files/Humble Philip Resume.pdf';
+            const resumePath = 'files/Humble_Philip_Resume.pdf';
             const openResumeBtn = document.getElementById('open-resume'); // explicit button
 
             const canvas = document.getElementById('pdf-canvas');
@@ -427,9 +601,9 @@
             let pageNum = 1;
             let scale = 1.4;
 
-            // Configure worker (use unpkg CDN worker) if PDF.js loaded
+            // Configure PDF.js worker (use CDNJS worker) if PDF.js loaded
             if (window.pdfjsLib) {
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist/build/pdf.worker.min.js';
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
             }
 
             function showLoading(on = true) {
