@@ -217,6 +217,68 @@
             box-shadow: 0 0 25px rgba(255,0,85,0.5);
         }
 
+        /* Tools Section */
+        .tools-section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #2f363d;
+            box-shadow: 0 0 20px rgba(0,0,0,0.25);
+            text-align: left;
+        }
+
+        .tools-section h3 {
+            color: #ff0055;
+            margin-bottom: 0.6rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            align-items: center;
+            justify-items: center;
+            padding: 0.5rem;
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid #30363d;
+            padding: 0.6rem;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 30px rgba(255,0,85,0.08);
+            border-color: #ff0055;
+        }
+
+        .tool-card img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .tool-name {
+            color: #c9d1d9;
+            font-size: 0.9rem;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
         .future-work {
             margin-top: 3rem;
             padding: 2rem;
@@ -454,6 +516,46 @@
         </div>
     </section>
 
+    <!-- Tools placeholder (inserted after stats section) -->
+    <section id="tools-placeholder" class="tools-section placeholder" aria-label="Tools placeholder">
+        <h3>tools i forge with</h3>
+        <p class="note" style="color:#f50505;">A quick preview of programming languages and operating systems I use — click any to learn more.</p>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                <div class="tool-name">Python</div>
+            </div>
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <div class="tool-name">JavaScript</div>
+            </div>
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                <div class="tool-name">HTML5</div>
+            </div>
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                <div class="tool-name">CSS3</div>
+            </div>
+            <div class="tool-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" alt="Linux" style="width:64px;height:64px;">
+                <div class="tool-name">Linux</div>
+            </div>
+            <div class="tool-card">
+                <img src="https://www.kali.org/images/kali-logo.svg" alt="Kali Linux" style="width:64px;height:64px;">
+                <div class="tool-name">Kali Linux</div>
+            </div>
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                <div class="tool-name">Node.js</div>
+            </div>
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                <div class="tool-name">TensorFlow</div>
+            </div>
+        </div>
+    </section>
+
     <div class="pro-section">
         <h2>🌑 Professional Portfolio & Resume</h2>
         <p>I transform ideas into secure, intelligent, and emotional digital systems.  
@@ -514,6 +616,60 @@
         </div>
     </div>
 
+    <!-- Tools Section: Programming languages & OS -->
+    <section class="tools-section">
+        <h3>🛠 Tools I forge with</h3>
+        <div class="tools-grid">
+            <!-- Python -->
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo">
+                <div class="tool-name">Python</div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo">
+                <div class="tool-name">JavaScript</div>
+            </div>
+
+            <!-- HTML5 -->
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 logo">
+                <div class="tool-name">HTML5</div>
+            </div>
+
+            <!-- CSS3 -->
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 logo">
+                <div class="tool-name">CSS3</div>
+            </div>
+
+            <!-- Linux (Tux) -->
+            <div class="tool-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" alt="Linux Tux" style="width:64px;height:64px;">
+                <div class="tool-name">Linux</div>
+            </div>
+
+            <!-- Kali Linux (logo) -->
+            <div class="tool-card">
+                <img src="https://www.kali.org/images/kali-logo.svg" alt="Kali Linux logo" style="width:64px;height:64px;">
+                <div class="tool-name">Kali Linux</div>
+            </div>
+
+            <!-- Node.js -->
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js logo">
+                <div class="tool-name">Node.js</div>
+            </div>
+
+            <!-- TensorFlow -->
+            <div class="tool-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow logo">
+                <div class="tool-name">TensorFlow</div>
+            </div>
+        </div>
+    </section>
+
     <div class="socials">
             <h3>📱 Contact & Social Links</h3>
             <div class="contact-grid">
@@ -553,7 +709,7 @@
                     <button id="page-prev" class="cv-button" style="background:#222;padding:0.4rem 0.8rem;">◀</button>
                     <button id="page-next" class="cv-button" style="background:#222;padding:0.4rem 0.8rem;">▶</button>
                     <div style="color:#c9d1d9; font-size:0.95rem;">Page <span id="page-num">1</span> / <span id="page-count">—</span></div>
-                    <a class="cv-button" href="files/Humble_Philip_Resume.pdf" target="_blank" rel="noopener" style="margin-left:8px;">Open in new tab</a>
+                    <a class="cv-button" href="files/Humble_Philip_Resume.pdf" target="_show" rel="noopener" style="margin-left:8px;">Open in new tab</a>
                     <button class="close-btn" id="resume-close" aria-label="Close resume viewer">✕</button>
                 </div>
             </div>
